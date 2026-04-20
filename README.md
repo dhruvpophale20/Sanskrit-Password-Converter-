@@ -1,28 +1,28 @@
 # Sanskrit Password Generator
 
-A Python tool that generates secure passwords by translating English words to Sanskrit and combining them with symbols and numbers.
+A Python tool that generates secure, memorable passwords by translating English words to Sanskrit and combining them with symbols and numbers.
 
 ## Features
 
-- Translates English words to Hindi/Sanskrit (Devanagari script)
-- Converts Devanagari to Romanized Sanskrit (IAST/ITRANS)
-- Generates unique passwords with random component ordering
-- Includes special characters and custom numbers
-- Input validation for user-friendly experience
+- Translates English words to Hindi/Sanskrit (Devanagari script) via Google Translate
+- Converts Devanagari to Romanized Sanskrit (ITRANS)
+- Generates unique passwords with random component ordering (6 possible permutations)
+- Includes a random special character and your custom numbers
+- Input validation for a user-friendly experience
 
 ## How It Works
 
-1. Enter an English word
-2. The word is translated to Hindi/Sanskrit
-3. The Devanagari script is transliterated to IAST (Roman script)
-4. A random special character, your numbers, and the IAST word are combined in random order
+1. You enter an **English word** and a **number string** (min 4 digits)
+2. The word is translated to Hindi/Sanskrit (Devanagari)
+3. The Devanagari script is transliterated to Roman script (ITRANS)
+4. A random special character, your numbers, and the ITRANS word are combined in a random order
 
 **Example:**
 ```
 English Word:    hello
-Sanskrit (Dev):  नमस्ते
-Sanskrit (IAST): namaste
-Password:        @namaste1234  (or any permutation)
+Devanagari:      नमस्ते
+IAST (Roman):    namaste
+Password:        @namaste1234  (one of 6 possible orderings)
 ```
 
 ## Installation
@@ -47,31 +47,32 @@ Then follow the prompts:
 === Sanskrit Password Generator ===
 
 Enter an English word: light
-Enter numbers to include (min 4 digits): 5678
+Enter numbers (min 4 digits): 5678
 
-===================================
-English Word:         light
-Sanskrit (Devanagari): प्रकाश
-Sanskrit (IAST):      prakaasha
-Generated Password:   prakaasha5678&
-===================================
+========================================
+English Word:          light
+Devanagari:            प्रकाश
+IAST (Roman):          prakaasha
+Generated Password:    prakaasha5678&
+========================================
 ```
 
 ## Password Structure
 
-Each password contains three components:
-- **Symbol** - Random character from `@#$%&*!$^_+-=~:;<>`
-- **Numbers** - Your custom digit string
-- **IAST Word** - Romanized Sanskrit transliteration
+Each password contains **three components** arranged in one of **six random orderings**:
 
-The three components are arranged in one of six possible orderings, chosen randomly each time.
+| Component | Description |
+|-----------|-------------|
+| **Symbol** | Random character from `@ # $ % & * ! ^ _ - + = ~ : ; < >` |
+| **Numbers** | Your custom digit string |
+| **ITRANS Word** | Romanized Sanskrit transliteration of your word |
 
 ## Dependencies
 
-| Package | Purpose |
-|---------|---------|
-| `googletrans` | English to Hindi translation |
-| `indic_transliteration` | Devanagari ↔ IAST conversion |
+| Package | Version | Purpose |
+|---------|---------|---------|
+| `googletrans` | `4.0.0-rc1` | English → Hindi translation |
+| `indic_transliteration` | latest | Devanagari ↔ ITRANS conversion |
 
 ## License
 
